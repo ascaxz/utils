@@ -60,7 +60,7 @@ local function getboundingbox(model, orientation)
             local cf = tos(orientation, v.CFrame);
             local size = v.Size;
             local sx, sy, sz = size.X, size.Y, size.Z;
-            local x, y, z, r0, r1, r2, r10, r11, r12, r20, r21, r22 = getcomponents(cf); 
+            local x, y, z, r0, r1, r2, r10, r11, r12, r20, r21, r22 = getcomponents(cf);
             local wsx = 0.5 * (abs(r0) * sx + abs(r1) * sy + abs(r2) * sz);
             local wsy = 0.5 * (abs(r10) * sx + abs(r11) * sy + abs(r12) * sz);
             local wsz = 0.5 * (abs(r20) * sx + abs(r21) * sy + abs(r22) * sz);
