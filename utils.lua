@@ -64,7 +64,7 @@ local function getboundingbox(model, orientation)
             local wsx = 0.5 * (abs(r0) * sx + abs(r1) * sy + abs(r2) * sz);
             local wsy = 0.5 * (abs(r10) * sx + abs(r11) * sy + abs(r12) * sz);
             local wsz = 0.5 * (abs(r20) * sx + abs(r21) * sy + abs(r22) * sz);
-            minx = minx > x - wsx and z - wsx or minx;
+            minx = minx > x - wsx and x - wsx or minx;
             miny = miny > y - wsy and y - wsy or miny;
             minz = minz > z - wsz and z - wsz or minz;
 
@@ -91,7 +91,7 @@ local function getboundingboxcharacter(model, humanoid: Humanoid, orientation)
             local wsx = (abs(r0) * sx + abs(r1) * sy + abs(r2) * sz) * 0.5;
             local wsy = (abs(r10) * sx + abs(r11) * sy + abs(r12) * sz) * 0.5;
             local wsz = (abs(r20) * sx + abs(r21) * sy + abs(r22) * sz) * 0.5;
-            minx = minx > x - wsx and z - wsx or minx;
+            minx = minx > x - wsx and x - wsx or minx;
             miny = miny > y - wsy and y - wsy or miny;
             minz = minz > z - wsz and z - wsz or minz;
 
