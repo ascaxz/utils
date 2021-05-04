@@ -21,7 +21,7 @@ local type = type;
 --const
 
 local pi = math.pi;
-local inf = 1 / 0;
+local inf = math.huge;
 local r6s = {
     Head = true,
     Torso = true,
@@ -52,7 +52,7 @@ local getdescendants = game.GetDescendants;
 local isa = game.IsA;
 
 local function getboundingbox(model, orientation)
-    orientation = cframe_new();
+    orientation = orientation or cframeidentity;
     local minx, miny, minz = inf, inf, inf;
     local maxx, maxy, maxz = -inf, -inf, -inf;
     for i,v in pairs(getdescendants(model)) do
