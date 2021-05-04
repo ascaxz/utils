@@ -61,9 +61,9 @@ local function getboundingbox(model, orientation)
             local size = v.Size;
             local sx, sy, sz = size.X, size.Y, size.Z;
             local x, y, z, r0, r1, r2, r10, r11, r12, r20, r21, r22 = getcomponents(cf);
-            local wsx = 0.5 * (abs(r0) * sx + abs(r1) * sy + abs(r2) * sz);
-            local wsy = 0.5 * (abs(r10) * sx + abs(r11) * sy + abs(r12) * sz);
-            local wsz = 0.5 * (abs(r20) * sx + abs(r21) * sy + abs(r22) * sz);
+            local wsx = (abs(r0) * sx + abs(r1) * sy + abs(r2) * sz) * 0.5;
+            local wsy = (abs(r10) * sx + abs(r11) * sy + abs(r12) * sz) * 0.5;
+            local wsz = (abs(r20) * sx + abs(r21) * sy + abs(r22) * sz) * 0.5;
             minx = minx > x - wsx and x - wsx or minx;
             miny = miny > y - wsy and y - wsy or miny;
             minz = minz > z - wsz and z - wsz or minz;
@@ -77,7 +77,7 @@ local function getboundingbox(model, orientation)
     return orientation - orientation.Position + ptws(orientation, (omax + omin) * 0.5), (omax - omin);
 end
 
-local function getboundingboxcharacter(model, humanoid: Humanoid, orientation)
+local function getboundingboxcharacter(model, humanoid, orientation)
     orientation = orientation or cframeidentity;
     local minx, miny, minz = inf, inf, inf;
     local maxx, maxy, maxz = -inf, -inf, -inf;
