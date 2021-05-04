@@ -57,7 +57,7 @@ local function getboundingbox(model, orientation)
     local maxx, maxy, maxz = -inf, -inf, -inf;
     for i,v in pairs(getdescendants(model)) do
         if isa(v, "BasePart") then
-            local cf = tos(orientation, v.CFrame);
+            local cf = v.CFrame;
             local size = v.Size;
             local sx, sy, sz = size.X, size.Y, size.Z;
             local x, y, z, r0, r1, r2, r10, r11, r12, r20, r21, r22 = getcomponents(cf);
