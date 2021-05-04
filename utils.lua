@@ -52,7 +52,7 @@ local getdescendants = game.GetDescendants;
 local isa = game.IsA;
 
 local function getboundingbox(model, orientation)
-    orientation = orientation or cframeidentity;
+    orientation = cframe_new();
     local minx, miny, minz = inf, inf, inf;
     local maxx, maxy, maxz = -inf, -inf, -inf;
     for i,v in pairs(getdescendants(model)) do
