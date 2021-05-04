@@ -10,6 +10,7 @@ local vector3identity = vector3_new();
 local vector2identity = vector2_new();
 
 local dot3 = vector3identity.Dot;
+local dot2 = vector2identity.Dot;
 local tos = cframeidentity.ToObjectSpace;
 local ptos = cframeidentity.PointToObjectSpace;
 local ptws = cframeidentity.PointToWorldSpace;
@@ -17,6 +18,7 @@ local getcomponents = cframeidentity.GetComponents;
 local abs = math.abs;
 local rad = math.rad;
 local tan = math.tan;
+local acos = math.acos;
 local type = type;
 --const
 
@@ -136,4 +138,12 @@ do
         utils.camobj = cam;
     end
 end
+local function anglebetweenvector2(vec1, vec2)
+    return acos(dot2(vec1, vec2) / (vec1.Magnitude * vec2.Magnitude));
+end
+local function anglebetweenvector3(vec1, vec2)
+    return acos(dot3(vec1, vec2) / (vec1.Magnitude * vec2.Magnitude));
+end
+utils.anglebetweenvector2 = anglebetweenvector2;
+utils.anglebetweenvector3 = anglebetweenvector3;
 return utils;
