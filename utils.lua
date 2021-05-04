@@ -57,7 +57,7 @@ local function getboundingbox(model, orientation)
     local maxx, maxy, maxz = -inf, -inf, -inf;
     for i,v in pairs(getdescendants(model)) do
         if isa(v, "BasePart") then
-            local cf = v.CFrame;
+            local cf = tos(orientation, v.CFrame);
             local size = v.Size;
             local sx, sy, sz = size.X, size.Y, size.Z;
             local x, y, z, r0, r1, r2, r10, r11, r12, r20, r21, r22 = getcomponents(cf);
@@ -83,7 +83,7 @@ local function getboundingboxcharacter(model, humanoid: Humanoid, orientation)
     local maxx, maxy, maxz = -inf, -inf, -inf;
     local rigtype = humanoid.RigType.Name;
     for i,v in pairs(getdescendants(model)) do
-        if isa(v, "BasePart") and (rigtype == "R6" and r6s[v.Name] or r15s[v.Name]) then
+        if isa(v, "BasePart") and (rigtype == "R6" and r6s[v.Name] or r15s[v.Name]) and v.Name ~= "HumanoidRootPart" then
             local cf = tos(orientation, v.CFrame);
             local size = v.Size;
             local sx, sy, sz = size.X, size.Y, size.Z;
