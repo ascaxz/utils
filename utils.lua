@@ -109,6 +109,8 @@ utils.getboundingbox = getboundingbox;
 utils.getboundingboxcharacter = getboundingboxcharacter;
 utils.r15 = r15s;
 utils.r6 = r6s;
+utils.vector3new = vector3_new;
+utils.vector2new = vector2_new;
 do
     local guiservice = game:GetService("GuiService");
     local inset = guiservice:GetGuiInset();
